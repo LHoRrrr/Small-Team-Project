@@ -15,19 +15,19 @@
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Nav Item - Tables -->
-    <li class="nav-item <?= ($p == 'tables') ? 'active' : '' ?>">
-    <a class="nav-link" href="index.php?p=tables">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span></a>
-    </li>
-
     <!-- Nav Item - Product -->
 
     <li class="nav-item <?= ($p == 'products' ? 'active' : '') ?>">
         <a class="nav-link" href="index.php?p=products">
-            <i class="fas fa-fw fa-filter"></i>
+            <i class="fas fa-fw fa-chart-area"></i>
             <span>Products</span></a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item <?= ($p == 'tables') ? 'active' : '' ?>">
+        <a class="nav-link" href="index.php?p=tables">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Tables</span></a>
     </li>
 
     <!-- Divider -->

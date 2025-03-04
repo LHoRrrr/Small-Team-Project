@@ -1,21 +1,22 @@
-<?php 
-    $page = "dashboard.php";
-    $p = "dashboard";
-    if (isset($_GET['p'])){
-        $p = $_GET['p'];
-        switch($p){
-            case "charts" : $page = "charts.php";
-                break;
-            case "tables" : $page = "tables.php";
-                break;
-        }
-
+<?php
+$page = "dashboard.php";
+$p = "dashboard";
+if (isset($_GET['p'])) {
+    $p = $_GET['p'];
+    switch ($p) {
+        case "charts":
+            $page = "products.php";
+            break;
+        case "tables":
+            $page = "tables.php";
+            break;
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include "include/head.php"?>
+<?php include "include/head.php" ?>
 
 <body id="page-top">
 
@@ -37,7 +38,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <?php include "$page"?>
+                <?php include "$page" ?>
                 <!-- /.container-fluid -->
 
             </div>
@@ -51,7 +52,7 @@
         <!-- End of Content Wrapper -->
     </div>
 
-    <?php include "include/foot.php"?>
+    <?php include "include/foot.php" ?>
 </body>
 
 </html>
