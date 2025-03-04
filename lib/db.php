@@ -1,5 +1,5 @@
 <?php
-	include "./config/connectDB.php";
+	include "/config/connectDB.php";
 	// Connect to database
 	function dbConn()
 	{
