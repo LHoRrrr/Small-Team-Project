@@ -5,11 +5,11 @@
 	if (isset($_GET['p'])){
 		$p = $_GET['p'];
 		switch($p){
-			case "laptop": $page = "laptop.php";
+			case "apple": $page = "apple.php";
 				break;
-			case "camera": $page = "camera.php";
+			case "samsung": $page = "samsung.php";
 				break;
-			case "smartphone": $page = "smartphone.php";
+			case "xiaomi": $page = "xiaomi.php";
 				break;
 			case "checkout": $page = "checkout.php";
 				break;
