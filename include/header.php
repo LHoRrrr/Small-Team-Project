@@ -36,9 +36,9 @@
 								<form>
 									<select class="input-select">
 										<option value="0">All Categories</option>
-										<option value="1">Compupter</option>
-										<option value="2">Smartphones</option>
-                    <option value="2">Camera</option>
+										<option value="1">Apple</option>
+										<option value="2">Samsung</option>
+                    <option value="2">Xiaomi</option>
 									</select>
 									<input class="input" placeholder="Search here">
 									<button class="search-btn">Search</button>

@@ -6,9 +6,9 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="<?=($p == 'home')? 'active':''?>"><a href="index.php?p=home">Home</a></li>
-						<li class="<?=($p == 'laptop')? 'active': ''?>"><a href="index.php?p=laptop">Laptops</a></li>
-						<li class="<?=($p == 'smartphone')? 'active':''?>"><a href="index.php?p=smartphone">Smartphones</a></li>
-						<li class="<?=($p == 'camera')? 'active':''?>"><a href="index.php?p=camera">Cameras</a></li>
+						<li class="<?=($p == 'laptop')? 'active': ''?>"><a href="index.php?p=laptop">Apple</a></li>
+						<li class="<?=($p == 'smartphone')? 'active':''?>"><a href="index.php?p=smartphone">Samsung</a></li>
+						<li class="<?=($p == 'camera')? 'active':''?>"><a href="index.php?p=camera">Xiaomi</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>
