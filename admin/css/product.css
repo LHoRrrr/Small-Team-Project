@@ -1,0 +1,104 @@
+.form-container-add-product {
+  width: 100%;
+  /*background-color: antiquewhite;*/
+}
+.form-container-add-product h1 {
+  text-align: center;
+  font-weight: 800;
+  padding: 10px;
+}
+.form-body-add-product{
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 0 0;
+  border-radius: 10px;
+}
+
+.form-body-add-product form {
+  width: 60%;
+}
+
+.form-body-add-product form .product-php-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.product-general-information-container{
+  width: 100%;
+  background-color: white ;
+  padding: 20px 0 20px 20px;
+  border-radius: 10px 0  0 10px;
+}
+
+.product-name-container, .product-specs-container, .product-price-container, .product-brand-container{
+  width: 100%;
+  background-color: white;
+  padding: 10px 8px;
+  margin-bottom: 10px;
+} 
+.product-order, .product-status, .product-quantity, .product-price, .product-brand{
+  margin-bottom: 10px;
+}
+
+.form-body-add-product form .product-php-container input ,.form-body-add-product form .product-php-container textarea{
+  width: 100%;
+  outline: none;
+  padding: 5px 5px;
+
+
+}
+.form-body-add-product form .product-php-container select{
+  width: 50%;
+  outline: none;
+  padding: 5px 5px;
+}
+
+
+.add-image-product-container{
+  width: 100%;
+  background-color: white;
+  padding: 20px 0 0 0;
+  border-radius: 0 10px  10px 0;
+}
+.add-image-product-container .product-image-container {
+  width: 300px;
+  height: 300px;
+  background-color: rgb(198, 198, 198);
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.add-image-product-container .submit{
+  width: 100%;
+  margin: 10px auto;
+}
+
+.submit-button {
+  width: 20%;
+  margin: 20px auto;
+}
+.submit-button input{
+  width: 100%;
+  padding: 5px 8px;
+  background-color: rgb(90, 90, 200);
+  color: white;
+  border: none;
+  font-weight: 800;
+  border-radius: 3px;
+}
+.submit-button input:hover {
+  background-color: white;
+  color: rgb(90, 90, 200);
+}
+
+.submit-button input:active {
+  background-color: rgb(90, 90, 200);
+  color: white;
+}
+
+
+
