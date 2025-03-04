@@ -24,7 +24,7 @@
 									<div class="products-slick" data-nav="#slick-nav-1">
 										<!-- sample product from database -->
 										 <?php 
-										 	include "../config/connectDB.php";
+										 	include "config/connectDB.php";
 											
 											$sql = "SELECT * FROM tblphone WHERE mark_phone = 'New release' ORDER BY order_phone";
 											$result = mysqli_query($conn, $sql);
