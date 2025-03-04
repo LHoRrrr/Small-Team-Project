@@ -1,4 +1,5 @@
 <?php
+
 	$page = "home.php";
 	$p = "home";
 	if (isset($_GET['p'])){

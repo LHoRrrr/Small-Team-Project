@@ -868,16 +868,18 @@ textarea.input {
 
 .product .product-img {
   position: relative;
+  left: 20%
 }
 
 .product .product-img>img {
-  width: 100%;
+  width: 150px;
+  padding: 10px;
 }
 
 .product .product-img .product-label {
   position: absolute;
   top: 15px;
-  right: 15px;
+  right: 62px;
 }
 
 .product .product-img .product-label>span {
