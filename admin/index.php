@@ -4,11 +4,14 @@ $p = "dashboard";
 if (isset($_GET['p'])) {
     $p = $_GET['p'];
     switch ($p) {
-        case "charts":
+        case "products":
             $page = "products.php";
             break;
-        case "tables":
-            $page = "tables.php";
+        case "banners":
+            $page = "banners.php";
+            break;
+        case "users":
+            $page = "users.php";
             break;
     }
 }

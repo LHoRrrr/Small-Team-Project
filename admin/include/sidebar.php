@@ -16,10 +16,10 @@
     </li>
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item <?= ($p == 'tables') ? 'active' : '' ?>">
-    <a class="nav-link" href="index.php?p=tables">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span></a>
+    <li class="nav-item <?= ($p == 'banners') ? 'active' : '' ?>">
+        <a class="nav-link" href="index.php?p=banners">
+            <i class="fas fa-fw fa-bars"></i>
+            <span>Banners</span></a>
     </li>
 
     <!-- Nav Item - Product -->
@@ -28,6 +28,13 @@
         <a class="nav-link" href="index.php?p=products">
             <i class="fas fa-fw fa-filter"></i>
             <span>Products</span></a>
+    </li>
+
+    <!-- Nav Item Users -->
+    <li class="nav-item <?= ($p == 'users' ? 'active' : '') ?>">
+        <a class="nav-link" href="index.php?p=users">
+            <i class="fa fa-user-circle"></i>
+            <span>Users</span></a>
     </li>
 
     <!-- Divider -->
