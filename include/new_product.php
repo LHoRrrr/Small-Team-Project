@@ -26,7 +26,7 @@
 										 <?php 
 										 	include "config/connectDB.php";
 											
-											$sql = "SELECT * FROM tblphone WHERE brand_phone = 'APPLE' ORDER BY id_phone";
+											$sql = "SELECT * FROM tblphone WHERE brand_phone = 'SAMSUNG' ORDER BY id_phone";
 											$result = mysqli_query($conn, $sql);
 											if(!$result){
 												die("Query error");

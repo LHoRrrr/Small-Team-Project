@@ -112,7 +112,7 @@ if (isset($_POST['product_id'])) {
 
                         <div class="product-price">
                             <label for="price">Price</label> </br>
-                            <input type="number" name="product_price" id="price" placeholder="Product price" required>
+                            <input type="number" name="product_price" id="price" placeholder="Product price" step="0.01" required>
                         </div>
                         <div class="product-quantity">
                             <label for="quantity">Quantity</label></br>
