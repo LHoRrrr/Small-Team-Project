@@ -1,8 +1,7 @@
 <?php
-include "../config/connectDB.php"; // Ensure the database connection is correct
+include "../config/connectDB.php"; 
 
 if (isset($_POST['product_id'])) {
-    // Sanitize the product ID input
     $product_id = trim($_POST['product_id']);
 
     // Check if the product ID already exists
