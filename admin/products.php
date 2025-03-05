@@ -40,7 +40,7 @@
 <div class="form-container-add-product">
     <h1 class="">ADD PRODUCT FORM</h1>
     <div class="form-body-add-product">
-        <form method="POST" action="index.php" enctype="multipart/form-data">
+        <form method="POST" action="index.php?p=products" enctype="multipart/form-data">
             <div class="product-php-container">
                 <div class="product-general-information-container">
                     <h4>General Information</h4>
