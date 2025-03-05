@@ -47,7 +47,7 @@ if (isset($_POST['product_id'])) {
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $insertStmt = $conn->prepare($insertQuery);
-            $insertStmt->bind_param("ssssssissii", $product_id, $product_name, $product_specs, $product_description, $photo_path_file, $product_brand, $product_price, $product_status, $product_mark, $product_quantity, $product_order);
+            $insertStmt->bind_param("ssissssssii", $product_id, $product_name, $product_price, $product_specs, $product_description, $photo_path_file, $product_brand, $product_status, $product_mark, $product_quantity, $product_order);
 
             // Execute the insert query
             if ($insertStmt->execute()) {
@@ -99,7 +99,7 @@ if (isset($_POST['product_id'])) {
                     <div class="product-brand-container">
                         <div class="product-brand">
                             <label for="brand">Product brand</label> </br>
-                            <input type="text" id="brand" name="product_brand" placeholder="Example: Apple..." required>
+                            <input type="text" id="brand" name="product_brand" placeholder="Example: APPLE..." required>
                         </div>
                         <div class="product-mark">
                             <label for="mark">Product Mark</label> </br>
