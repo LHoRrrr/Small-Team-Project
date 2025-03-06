@@ -1,4 +1,11 @@
 <?php
+session_start(); // Ensure session is started before using $_SESSION
+
+
+// if (!isset($_SESSION['valid'])) {
+//     header("location: login.php");
+// }
+
 $page = "dashboard.php";
 $p = "dashboard";
 $footer = true;
