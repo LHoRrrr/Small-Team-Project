@@ -1,11 +1,13 @@
 <?php
 $page = "dashboard.php";
 $p = "dashboard";
+$footer = true;
 if (isset($_GET['p'])) {
     $p = $_GET['p'];
     switch ($p) {
         case "products":
             $page = "products.php";
+            $footer = false;
             break;
         case "banners":
             $page = "banners.php";
@@ -48,9 +50,8 @@ if (isset($_GET['p'])) {
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include "include/footer.php" ?>
+            <?php  if ($footer) include "include/footer.php"; ?>
             <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
     </div>

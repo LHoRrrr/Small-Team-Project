@@ -1,5 +1,16 @@
+
+
+
+.product-php-container-all {
+  display: block; /* Ensure normal flow */
+  width: 100%;
+}
+
+/*Product add form style */
 .form-container-add-product {
   width: 100%;
+  flex-wrap: wrap; /* Allows content to move to the next line */
+  align-items: flex-start; /* Aligns items at the top */
   /*background-color: antiquewhite;*/
 }
 .form-container-add-product h1 {
@@ -131,6 +142,8 @@ label[for="upload-button"]{
   background-color: rgb(90, 90, 200);
   color: white;
 }
+
+
 
 
 
