@@ -70,13 +70,6 @@ include "../config/connectDB.php";
         } 
     ?>
 
-    <?php 
-        include "include/product-list.php";
-    ?>
-    
-    
-    
-    
     <!--Add product form-->
     <div class="form-container-add-product">
     <h1 class="">ADD PRODUCT FORM</h1>
@@ -168,7 +161,7 @@ include "../config/connectDB.php";
 
 <!--Add product form-->
     <!--Product List-->
-
+        <?php include "./include/product-list.php"?>
 
 
 

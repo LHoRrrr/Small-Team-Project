@@ -1,6 +1,7 @@
 <?php
     include "../config/connectDB.php";
-    
+    session_start();
+    if(!isset($_SESSION['valid'])){
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = mysqli_real_escape_string($conn, trim($_POST['username']));
         $password = $_POST['password']; 
@@ -23,9 +24,10 @@
     
           // If passwords are stored as plain text
           if ($row['password_admin'] === $password) {
-            header("Location: index.php");
-            session_start();
+            header("Location: index.php?p=dashboard");
+            //session_start();
             $_SESSION['valid'] = true;
+            $_SESSION['name'] = $row['username_admin'];
             exit(); 
           } else {
             echo "Invalid password.";
@@ -36,7 +38,11 @@
       }
     
       mysqli_close($conn);
+    }else {
+        header("Location: index.php?p=dashboard");
+    }
     ?>
+
 ?>
 
 
@@ -80,19 +86,18 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4 ">Please Login here</h1>
                                     </div>
-                            <form class="user">
+                            <form method="POST" action="login.php" class="user">
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user"
-                                         aria-describedby="emailHelp"
-                                        placeholder="Enter Email Address..." name="email">
+                                    <input required type="text" class="form-control form-control-user"
+                                        placeholder="Username..." name="username">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control form-control-user"
-                                        placeholder="Password">
+                                        placeholder="Password..">
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" name = "remember" class="custom-control-input" id="customCheck">
+                                        <input  type="checkbox" name = "remember" class="custom-control-input" id="customCheck">
                                         <label class="custom-control-label" for="customCheck">Remember
                                             Me</label>
                                     </div>

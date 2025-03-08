@@ -2,12 +2,14 @@
 session_start(); // Ensure session is started before using $_SESSION
 
 
-// if (!isset($_SESSION['valid'])) {
-//     header("location: login.php");
-// }
+if (!isset($_SESSION['valid'])) {
+    header("location: login.php");
+}
+$name = $_SESSION['name'];
+
+$p = "dashboard";
 
 $page = "dashboard.php";
-$p = "dashboard";
 $footer = true;
 if (isset($_GET['p'])) {
     $p = $_GET['p'];
@@ -21,6 +23,10 @@ if (isset($_GET['p'])) {
             break;
         case "users":
             $page = "users.php";
+            break;
+        case "destroy":
+            session_destroy();
+            header("Location: login.php");
             break;
     }
 }
