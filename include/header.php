@@ -58,10 +58,15 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Your Cart</span>
-										<div class="qty">3</div>
+										<div id="cartNumber" class="qty">0</div>
 									</a>
 									<div class="cart-dropdown">
 										<div class="cart-list">
+
+											<?php 
+												//include "./config/connectDB.php";
+												
+											?>
 											<div class="product-widget">
 												<div class="product-img">
 													<img src="./img/product01.png" alt="">
@@ -88,7 +93,7 @@
 											<small>3 Item(s) selected</small>
 											<h5>SUBTOTAL: $2940.00</h5>
 										</div>
-										<div class="cart-btns d-flex flex-end">
+										<div class="cart-btns">
 											<a href="index.php?p=checkout">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>

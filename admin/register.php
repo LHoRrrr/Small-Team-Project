@@ -1,3 +1,51 @@
+<?php 
+    include "../config/connectDB.php";
+
+    if (isset($_POST['username'])) {
+        $lastname = $_POST['lastname'];
+        $firstname = $_POST['firstname'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $repeat_password = $_POST['repeat_password']; // Fixed typo
+
+        // Hash the password for security (Recommended)
+        //$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Debugging output (Remove in production)
+        echo $lastname . " " . $firstname . " " . $username . " " . $email . " " . $repeat_password;
+
+        // Use prepared statements for security
+        $sql = "INSERT INTO tbladmin (firstname_admin, lastname_admin, username_admin, email_admin, password_admin) 
+                VALUES (?, ?, ?, ?, ?)";
+
+        $stmt = mysqli_prepare($conn, $sql);
+
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "sssss", $firstname, $lastname, $username, $email, $password);
+            $result = mysqli_stmt_execute($stmt);
+            
+            if ($result) {
+                echo "Admin successfully registered!";
+            } else {
+                die("Error inserting data: " . mysqli_error($conn));
+            }
+
+            mysqli_stmt_close($stmt);
+        } else {
+            die("SQL Error: " . mysqli_error($conn));
+        }
+        mysqli_close($conn);
+    }
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,35 +84,36 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <form method="POST" action="register.php" class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input required name="firstname" type="text" class="form-control form-control-user" id="exampleFirstName"
                                             placeholder="First Name">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input name="lastname" type="text" class="form-control form-control-user" id="exampleLastName"
                                             placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <input required name="username" type="text" class="form-control form-control-user" 
+                                        placeholder="Username...">
+                                </div>
+                                <div class="form-group">
+                                    <input required name="email" type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email Address...">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input required name="password" type="password" class="form-control form-control-user"
                                             id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input required name="repeat_password" type="password" class="form-control form-control-user"
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="login.php" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
-                                
+                                <input type="submit" value="Register" href="login.php" class="btn btn-primary btn-user btn-block"> 
                             </form>
                             <hr>
                             <div class="text-center">
