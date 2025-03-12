@@ -1,5 +1,5 @@
 <?php
-include "../config/connectDB.php"; // Ensure the database connection is correct
+include "../../config/connectDB.php"; // Ensure the database connection is correct
 
 if (isset($_POST['product_id'])) {
     // Sanitize the product ID input

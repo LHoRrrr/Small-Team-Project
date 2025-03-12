@@ -123,11 +123,11 @@ label[for="upload-button"]{
 .submit-button {
   width: 20%;
   margin: 20px auto;
+  display: flex;
 }
 .submit-button input{
-  width: 100%;
   padding: 5px 8px;
-  background-color: rgb(90, 90, 200);
+  background-color: rgb(66, 66, 255);
   color: white;
   border: none;
   font-weight: 800;
@@ -142,6 +142,8 @@ label[for="upload-button"]{
   background-color: rgb(90, 90, 200);
   color: white;
 }
+
+
 
 
 

@@ -1,7 +1,7 @@
 <?php
     include "../config/connectDB.php";
     session_start();
-    if(!isset($_SESSION['valid'])){
+    if(!isset($_SESSION['valid']) || $valid == "true"){
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = mysqli_real_escape_string($conn, trim($_POST['username']));
         $password = $_POST['password']; 

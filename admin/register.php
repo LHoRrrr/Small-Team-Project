@@ -27,6 +27,8 @@
             
             if ($result) {
                 echo "Admin successfully registered!";
+                $SESSION['valid'] = true;
+                header("Location: index.php?valid=true");
             } else {
                 die("Error inserting data: " . mysqli_error($conn));
             }
@@ -50,7 +52,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -113,7 +114,7 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <input type="submit" value="Register" href="login.php" class="btn btn-primary btn-user btn-block"> 
+                                <input type="submit" value="Register"  class="btn btn-primary btn-user btn-block"> 
                             </form>
                             <hr>
                             <div class="text-center">

@@ -21,11 +21,10 @@
 							<div class="footer">
 								<h3 class="footer-title">Categories</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="index.php?p=home">Home</a></li>
+									<li><a href="index.php?p=apple">Apple</a></li>
+									<li><a href="index.php?p=samsung">Samsung</a></li>
+									<li><a href="index.php?p=xiaomi">Xiaomi</a></li>
 								</ul>
 							</div>
 						</div>
