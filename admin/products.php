@@ -8,10 +8,7 @@
 <!--Add product form-->
     <!--Product List-->
         <?php include "./include/product-list.php"?>
-
-
-
-    
+        
     <!--Product List-->
 
     <?php

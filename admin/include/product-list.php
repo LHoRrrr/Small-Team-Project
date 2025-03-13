@@ -40,12 +40,10 @@
                     <td><?=htmlspecialchars($row['mark_phone'])?></td>
                     <td><?=htmlspecialchars($row['total_quantity'])?></td>
                     <td><?=htmlspecialchars($row['order_phone'])?></td>
-                    <td><a class="btn btn-warning" href="include/update.php?id=<?=$row['id_phone']?>">Update</a> <a class="btn btn-danger" href="delete.php?id=<?= $row['id_phone'] ?>">Delete</a></td>
+                    <td><a class="btn btn-warning" href="include/update.php?id=<?=$row['id_phone']?>">Update</a> <a class="btn btn-danger" href="include/delete.php?id=<?= $row['id_phone'] ?>">Delete</a></td>
                 </tr>
                 <?php } ?>
             </tbody>
         </table>
     </div>
 </div>
-
-

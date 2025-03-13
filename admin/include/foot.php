@@ -39,3 +39,5 @@
 
     <!-- product.php -->
     <script src="js/product.js"></script>
+    <!-- Bootstrap JavaScript (Put before </body>) -->
+<script></script>

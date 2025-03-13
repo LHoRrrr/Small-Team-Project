@@ -1,20 +1,23 @@
-
-
 <?php
 include "../../config/connectDB.php";
+
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+$sucessMessage = "";
 
 // Initialize variables
 $id = $name = $specs = $description = $brand = $mark = $price = $status = $quantity = $order = $image = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "GET" && isset($_GET['id'])) {
     $id = $_GET['id'];
-    
+
     // Securely fetch product data
     $stmt = $conn->prepare("SELECT * FROM tblphone WHERE id_phone = ?");
     $stmt->bind_param("s", $id);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if ($row = $result->fetch_assoc()) {
         $name = $row['name_phone'];
         $specs = $row['space_phone'];
@@ -42,33 +45,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['product_id'])) {
     $product_status = $_POST['product_status'];
     $product_order = $_POST['product_order'];
 
-    // Handle the product image upload
+    // Handle the product image upload (optional)
     $photo_path_file = $image; // Default to existing image
+    
     if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        if (!in_array($_FILES['product_image']['type'], $allowedTypes)) {
+        $fileType = $_FILES['product_image']['type'];
+
+        if (!in_array($fileType, $allowedTypes)) {
             die("Invalid image type. Only JPG, PNG, and GIF allowed.");
         }
-        
-        $target_dir = "../img/";
+
+        $target_dir = "../../img/";
+        if (!is_writable($target_dir)) {
+            die("Upload directory is not writable.");
+        }
+
         $photo_path_file = basename($_FILES['product_image']['name']);
         move_uploaded_file($_FILES['product_image']['tmp_name'], $target_dir . $photo_path_file);
     }
 
-    // Update the product
+    // Update the product in the database
     $updateQuery = "UPDATE tblphone SET name_phone=?, price_phone=?, space_phone=?, description_phone=?, photo_phone=?, brand_phone=?, status_phone=?, mark_phone=?, total_quantity=?, order_phone=? WHERE id_phone=?";
     $stmt = $conn->prepare($updateQuery);
     $stmt->bind_param("sisssssssis", $product_name, $product_price, $product_specs, $product_description, $photo_path_file, $product_brand, $product_status, $product_mark, $product_quantity, $product_order, $product_id);
-    
+
     if ($stmt->execute()) {
-        echo "<script>alert('Product updated successfully!'); window.location.href='../index.php?p=products';</script>";
+        $sucessMessage = "Product updated!";
+        header("location: ../index.php?p=products");
     } else {
-        echo "<script>alert('Failed to update product.');</script>";
+        die("Error updating product: " . $stmt->error);
     }
     $stmt->close();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,12 +117,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['product_id'])) {
     <div class="form-body-add-product">
         <form method="POST" action="update.php" enctype="multipart/form-data">
           <!-- <input type="hidden" value="<?#=$id?>"> -->
+           <?php if($sucessMessage){ 
+                echo '
+                <div class="container mt-4">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> Product updated successfully.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                    </div>
+                </div>
+            ';
+           }?>
             <div class="product-php-container">
                 <div class="product-general-information-container">
                     <h4>General Information</h4>
                     <div class="product-name-container">
                         <label for="id">ID</label> </br>
-                        <input type="text" id="id" placeholder="Product ID" name="product_id" value="<?=$id?>" required> </br>
+                        <input type="text" id="id" placeholder="Product ID" name="product_id" value="<?=$id?>" readonly required> </br>
                         <label for="name">Name</label> </br>
                         <input type="text" placeholder="Product name" id="name" name="product_name" value="<?=$name?>" required> </br>
                     </div>
@@ -171,11 +191,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['product_id'])) {
                 <div class="add-image-product-container">
                     <h4>Product Image</h4>
                     <div class="product-image-container">
-                        <img id="choosen-image" src="../img/<?=$image?>" alt="Product Image">
+                        <img id="choosen-image" src="../../img/<?=$image?>" alt="Product Image">
                         <p id="file-name"></p>
                     </div>
                     <div class="submit">
-                        <input type="file" name="product_image" id="upload-button" accept="image/*" required>
+                        <input type="file" name="product_image" id="upload-button" value="<?=$image?>" accept="image/*" >
                         <label for="upload-button">
                             <i class="fa-solid fa-upload"></i> &nbsp; Upload Image
                         </label>
