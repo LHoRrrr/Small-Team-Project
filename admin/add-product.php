@@ -2,7 +2,7 @@
 
 use LDAP\Result;
 
-include "../../config/connectDB.php"; 
+include "../config/connectDB.php"; 
 
 // Close the database connection
 ?>
@@ -56,6 +56,8 @@ include "../../config/connectDB.php";
                     // Execute the insert query
                     if (!($insertStmt->execute())) {
                         echo json_encode(["error" => "Failed to add the product"]);
+                    }else {
+                        header("Location: index.php?p=products");
                     }
                 } else {
                     echo json_encode(["error" => "Missing required form fields."]);
@@ -75,14 +77,14 @@ include "../../config/connectDB.php";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - Add Product</title>
-  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="endor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/product-list-style.css">
-    <link rel="stylesheet" href="../css/product.css">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/product-list-style.css">
+    <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
       .submit-button {
@@ -104,7 +106,7 @@ include "../../config/connectDB.php";
     <div class="form-container-add-product">
     <h1 class="">ADD PRODUCT </h1>
     <div class="form-body-add-product">
-        <form method="POST" action="index.php?p=products" enctype="multipart/form-data">
+        <form method="POST" action="add-product.php" enctype="multipart/form-data">
             <div class="product-php-container">
                 <div class="product-general-information-container">
                     <h4>General Information</h4>
@@ -180,13 +182,13 @@ include "../../config/connectDB.php";
 
             <div class="submit-button">
                 <input type="submit" value="Submit">
-                <a class="btn btn-danger display-inline" href="../index.php?p=products">Close</a>
+                <a class="btn btn-danger display-inline" href="index.php?p=products">Close</a>
             </div>
         </form>
     </div>
 </div>
 
-  <script src="../js/product.js"></script>
+  <script src="js/product.js"></script>
 </body>
 </html>
 

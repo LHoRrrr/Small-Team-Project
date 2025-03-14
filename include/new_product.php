@@ -26,7 +26,7 @@
 										 <?php 
 										 	include "config/connectDB.php";
 											
-											$sql = "SELECT * FROM tblphone WHERE brand_phone = 'APPLE' ORDER BY id_phone";
+											$sql = "SELECT * FROM tblphone WHERE mark_phone = 'New release'";
 											$result = mysqli_query($conn, $sql);
 											if(!$result){
 												die("Query error");
@@ -43,7 +43,7 @@
 											<div class="product-body">
 												<p class="product-category"><?=htmlspecialchars($row['space_phone'])  ?></p>
 												<h3 class="product-name"><a href="#"><?=htmlspecialchars($row['name_phone'])  ?></a></h3>
-												<h4 class="product-price"><?=htmlspecialchars($row['price_phone'])  ?></h4>
+												<h4 class="product-price">$<?=htmlspecialchars($row['price_phone'])  ?></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>

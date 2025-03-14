@@ -210,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['product_id'])) {
         </form>
     </div>
 </div>
-  <script src="../js/product.js"></script>
+  <script src="../js/update.js"></script>
 </body>
 </html>
 

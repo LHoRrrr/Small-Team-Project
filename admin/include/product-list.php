@@ -8,7 +8,7 @@
 
 <div class="table-product-list-container">
     <h1>PRODUCT LIST</h1>
-    <a class="btn btn-primary display-block p-2 mb-2" href="./include/add-product.php">Add new product</a>
+    <a class="btn btn-primary display-block p-2 mb-2" href="./add-product.php">Add new product</a>
     <div class="product-list-table">
         <table>
             <thead>
