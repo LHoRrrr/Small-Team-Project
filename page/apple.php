@@ -1,3 +1,8 @@
+<?php include "config/connectDB.php";
+	$sql = "SELECT * FROM tblphone WHERE brand_phone = 'APPLE'";
+	$result = mysqli_query($conn, $sql);
+?>
+
 <div class="section">
 			<!-- container -->
 			<div class="container">
@@ -144,7 +149,7 @@
 						<!-- /aside Widget -->
 
 						<!-- aside Widget -->
-						<div class="aside">
+						<!-- <div class="aside">
 							<h3 class="aside-title">Top selling</h3>
 							<div class="product-widget">
 								<div class="product-img">
@@ -153,7 +158,7 @@
 								<div class="product-body">
 									<p class="product-category">Category</p>
 									<h3 class="product-name"><a href="#">product name goes here</a></h3>
-									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+									<h4 class="product-price">$980.00 </h4>
 								</div>
 							</div>
 
@@ -178,7 +183,7 @@
 									<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<!-- /aside Widget -->
 					</div>
 					<!-- /ASIDE -->
@@ -213,20 +218,20 @@
 
 						<!-- store products -->
 						<div class="row">
+							<?php while($row = mysqli_fetch_assoc($result)){?>
 							<!-- product -->
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
-										<img src="./img/product01.png" alt="">
+										<img src="img/<?=htmlspecialchars($row['photo_phone'])?>" alt="">
 										<div class="product-label">
-											<span class="sale">-30%</span>
 											<span class="new">NEW</span>
 										</div>
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<p class="product-category"><?=htmlspecialchars($row['space_phone'])?></p>
+										<h3 class="product-name"><a href="#"><?=htmlspecialchars($row['name_phone'])?></a></h3>
+										<h4 class="product-price">$<?=htmlspecialchars($row['price_phone'])?></h4>
 										<div class="product-rating">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -245,10 +250,11 @@
 									</div>
 								</div>
 							</div>
+							<?php }?>
 							<!-- /product -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product02.png" alt="">
@@ -277,13 +283,13 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 
-							<div class="clearfix visible-sm visible-xs"></div>
+							<!-- <div class="clearfix visible-sm visible-xs"></div> -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product03.png" alt="">
@@ -304,13 +310,13 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 
-							<div class="clearfix visible-lg visible-md"></div>
+							<!-- <div class="clearfix visible-lg visible-md"></div> -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product04.png" alt="">
@@ -331,13 +337,13 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 
-							<div class="clearfix visible-sm visible-xs"></div>
+							<!-- <div class="clearfix visible-sm visible-xs"></div> -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product05.png" alt="">
@@ -358,11 +364,11 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product06.png" alt="">
@@ -388,13 +394,13 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 
-							<div class="clearfix visible-lg visible-md visible-sm visible-xs"></div>
+							<!-- <div class="clearfix visible-lg visible-md visible-sm visible-xs"></div> -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product07.png" alt="">
@@ -420,11 +426,11 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product08.png" alt="">
@@ -445,13 +451,13 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 
-							<div class="clearfix visible-sm visible-xs"></div>
+							<!-- <div class="clearfix visible-sm visible-xs"></div> -->
 
 							<!-- product -->
-							<div class="col-md-4 col-xs-6">
+							<!-- <div class="col-md-4 col-xs-6">
 								<div class="product">
 									<div class="product-img">
 										<img src="./img/product09.png" alt="">
@@ -472,7 +478,7 @@
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- /product -->
 						</div>
 						<!-- /store products -->

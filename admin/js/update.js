@@ -1,19 +1,28 @@
-const uploadButton = document.getElementById('upload-button');
-const choosenImage = document.getElementById('choosen-image');
-const fileName = document.getElementById('file-name');
-
-uploadButton.onchange = () => {
-  let reader = new FileReader();
-  let file = uploadButton.files[0]; // Correct way to get the selected file
-
-  if (file) {
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      choosenImage.setAttribute("src", reader.result); // Display image
-      fileName.textContent = file.name; // Show file name
+document.addEventListener("DOMContentLoaded", () => {
+    const uploadButton = document.getElementById("upload-button");
+    const choosenImage = document.getElementById("choosen-image");
+    const fileName = document.getElementById("file-name");
+  
+    if (!uploadButton || !choosenImage || !fileName) {
+      console.error("One or more elements not found!");
+      return;
+    }
+  
+    uploadButton.onchange = () => {
+      let file = uploadButton.files[0];
+  
+      if (file) {
+        let reader = new FileReader();
+  
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          choosenImage.src = reader.result; // Display selected image
+          fileName.textContent = file.name; // Show file name
+        };
+      }
     };
-  }
-};
+  });
+  
 
 
 //for add product form

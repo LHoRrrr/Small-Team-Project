@@ -48,22 +48,26 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['product_id'])) {
     // Handle the product image upload (optional)
     $photo_path_file = $image; // Default to existing image
     
-    if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
-        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        $fileType = $_FILES['product_image']['type'];
+    if (!$photo_path_file){
+        if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK && $photo_path_file !== $_FILES['product_image']['name']) {
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            $fileType = $_FILES['product_image']['type'];
 
-        if (!in_array($fileType, $allowedTypes)) {
-            die("Invalid image type. Only JPG, PNG, and GIF allowed.");
+            if (!in_array($fileType, $allowedTypes)) {
+                die("Invalid image type. Only JPG, PNG, and GIF allowed.");
+            }
+
+            $target_dir = "../../img/";
+            if (!is_writable($target_dir)) {
+                die("Upload directory is not writable.");
+            }
+
+            $photo_path_file = basename($_FILES['product_image']['name']);
+            move_uploaded_file($_FILES['product_image']['tmp_name'], $target_dir . $photo_path_file);
         }
-
-        $target_dir = "../../img/";
-        if (!is_writable($target_dir)) {
-            die("Upload directory is not writable.");
-        }
-
-        $photo_path_file = basename($_FILES['product_image']['name']);
-        move_uploaded_file($_FILES['product_image']['tmp_name'], $target_dir . $photo_path_file);
     }
+
+    
 
     // Update the product in the database
     $updateQuery = "UPDATE tblphone SET name_phone=?, price_phone=?, space_phone=?, description_phone=?, photo_phone=?, brand_phone=?, status_phone=?, mark_phone=?, total_quantity=?, order_phone=? WHERE id_phone=?";
@@ -72,7 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['product_id'])) {
 
     if ($stmt->execute()) {
         $sucessMessage = "Product updated!";
+        #echo "$photo_path_file" . $_FILES['product_image']['name'];
         header("location: ../index.php?p=products");
+        #echo "$photo_path_file {$_FILES['product_image']['name']}";
+
     } else {
         die("Error updating product: " . $stmt->error);
     }

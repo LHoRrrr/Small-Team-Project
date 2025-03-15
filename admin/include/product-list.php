@@ -8,7 +8,7 @@
 
 <div class="table-product-list-container">
     <h1>PRODUCT LIST</h1>
-    <a class="btn btn-primary display-block p-2 mb-2" href="./add-product.php">Add new product</a>
+    <a class="button-add btn btn-primary fw-bold display-block p-2 mb-2" href="./add-product.php" style="font-weight: 800; font-size: 18px;">Add new product</a>
     <div class="product-list-table">
         <table>
             <thead>
@@ -40,7 +40,7 @@
                     <td><?=htmlspecialchars($row['mark_phone'])?></td>
                     <td><?=htmlspecialchars($row['total_quantity'])?></td>
                     <td><?=htmlspecialchars($row['order_phone'])?></td>
-                    <td><a class="btn btn-warning" href="include/update.php?id=<?=$row['id_phone']?>">Update</a> <a class="btn btn-danger" href="include/delete.php?id=<?= $row['id_phone'] ?>">Delete</a></td>
+                    <td><a style="font-weight: 700; " class="btn btn-warning" href="include/update.php?id=<?=$row['id_phone']?>">Update</a> <a style="font-weight: 700; " class="btn btn-danger" href="include/delete.php?id=<?= $row['id_phone'] ?>">Delete</a></td>
                 </tr>
                 <?php } ?>
             </tbody>

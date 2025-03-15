@@ -187,7 +187,6 @@ include "../config/connectDB.php";
         </form>
     </div>
 </div>
-
   <script src="js/product.js"></script>
 </body>
 </html>

@@ -92,7 +92,7 @@
                                         placeholder="Username..." name="username">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" class="form-control form-control-user"
+                                    <input required type="password" name="password" class="form-control form-control-user"
                                         placeholder="Password..">
                                 </div>
                                 <div class="form-group">
