@@ -19,7 +19,7 @@ if (!$result) {
     <?php endif; ?>
 
     <div class="d-flex justify-content-between my-3">
-        <a class="btn btn-primary fw-bold" href="">Add User</a>
+        <a class="btn btn-primary fw-bold" href="add-user.php">Add User</a>
     </div>
 
     <div class="table-responsive">
